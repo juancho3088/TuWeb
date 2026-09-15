@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TuWeb - Desarrollo web acelerado por IA. Transformamos tu empresa con diseño UX/UI, e-commerce, y landing pages de alta conversión.">
+    <meta name="keywords" content="desarrollo web, IA, diseño web, e-commerce, landing page, agencia digital">
+    <meta name="theme-color" content="#0066FF">
+    <title>TuWeb - Desarrollo Web Acelerado por IA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* ==================== VARIABLES ==================== */
+        :root {
+            --primary: #0066FF;
+            --primary-dark: #004CCF;
+            --primary-light: #E6F0FF;
+            --accent: #FFD700;
+            --accent-dark: #FFC700;
+            --dark: #121212;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-900: #111827;
+            --white: #FFFFFF;
+        }
+
+        /* ==================== HEADER ==================== */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-100);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .btn-nav {
+            background: linear-gradient(135deg, var(--accent), #FFE66D);
+            color: var(--gray-900);
+            padding: 0.65rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
+        }
+
+        .btn-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--primary);
+            margin: 6px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, #1a1f3a 50%, var(--primary) 100%);
+            color: var(--white);
+            padding: 8rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -15%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 102, 255, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            animation: float-blob 15s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        @keyframes float-blob {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(30px) scale(1.05); }
+        }
+
+        .hero-content {
+            max-width: 950px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.65rem 1.3rem;
+            border-radius: 50px;
+            color: #B3D9FF;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1.5px;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(90deg, var(--accent), #FFE66D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #d0d0d0;
+            margin-bottom: 2.5rem;
+            max-width: 750px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), #FFE66D);
+            color: var(--gray-900);
+            padding: 1.1rem 2.3rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 1.1rem 2.3rem;
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 450px;
+            margin-top: 3rem;
+        }
+
+        .device-frame {
+            position: absolute;
+            background: linear-gradient(135deg, #1e1e3f 0%, #0a0e27 100%);
+            border: 8px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .device-laptop {
+            width: 550px;
+            height: 340px;
+            left: 0;
+            top: 50px;
+            animation: float-device 4s ease-in-out infinite;
+        }
+
+        .device-mobile {
+            width: 220px;
+            height: 420px;
+            right: 0;
+            top: 0;
+            animation: float-device 4s ease-in-out infinite 0.5s;
+        }
+
+        @keyframes float-device {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .device-frame::after {
+            content: '';
+            position: absolute;
+            inset: 10px;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.08), rgba(255, 215, 0, 0.03));
+            border-radius: 12px;
+        }
+
+        /* ==================== OFFER SECTION ==================== */
+        .offer-section {
+            padding: 6rem 2rem;
+            background: var(--white);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--gray-900);
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-600);
+            font-size: 1.05rem;
+            margin-bottom: 3.5rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        .offer-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .offer-card {
+            background: var(--white);
+            border: 1.5px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 2.8rem 2.2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .offer-card.accent::before {
+            background: linear-gradient(90deg, var(--accent), #FFE66D);
+        }
+
+        .offer-card.dark::before {
+            background: var(--gray-900);
+        }
+
+        .offer-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(0, 102, 255, 0.02) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary);
+        }
+
+        .offer-card.accent:hover {
+            border-color: var(--accent);
+        }
+
+        .offer-card.dark:hover {
+            border-color: var(--gray-900);
+        }
+
+        .offer-card:hover::after {
+            opacity: 1;
+        }
+
+        .offer-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            color: var(--gray-900);
+            font-weight: 800;
+        }
+
+        .offer-card .subtitle {
+            font-size: 1.05rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .offer-card p {
+            color: var(--gray-600);
+            margin-bottom: 1.8rem;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .offer-card .btn-primary {
+            width: 100%;
+            justify-content: center;
+            margin: 0;
+        }
+
+        /* ==================== BENEFITS SECTION ==================== */
+        .benefits-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .benefits-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .benefits-list {
+            list-style: none;
+        }
+
+        .benefits-list li {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 1.6rem;
+            font-size: 1.05rem;
+            color: var(--gray-700);
+            font-weight: 500;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary), #0052CC);
+            color: var(--white);
+            border-radius: 6px;
+            flex-shrink: 0;
+            font-weight: 800;
+            font-size: 1rem;
+        }
+
+        .benefits-visual {
+            position: relative;
+            height: 420px;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.08), rgba(255, 215, 0, 0.04));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid rgba(0, 102, 255, 0.1);
+        }
+
+        .benefits-visual::before {
+            content: '';
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(0, 102, 255, 0.15), transparent);
+            border-radius: 50%;
+            animation: pulse-blob 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-blob {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 1; }
+        }
+
+        .benefits-icon {
+            font-size: 6rem;
+            z-index: 1;
+        }
+
+        .benefits-cta {
+            margin-top: 2.5rem;
+        }
+
+        /* ==================== FEATURES SECTION ==================== */
+        .features-section {
+            padding: 6rem 2rem;
+            background: var(--white);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-block {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1.8rem;
+            align-items: flex-start;
+            padding: 1.8rem;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            transform: translateX(8px);
+        }
+
+        .feature-icon {
+            font-size: 2.2rem;
+            color: var(--primary);
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 102, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .feature-content h4 {
+            color: var(--gray-900);
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .feature-content p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ==================== PROJECTS SECTION ==================== */
+        .projects-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--dark) 0%, #1a1f3a 100%);
+            color: var(--white);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .projects-section .section-title {
+            color: var(--white);
+        }
+
+        .projects-section .section-subtitle {
+            color: #b0b0b0;
+        }
+
+        .carousel {
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 1rem 0;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) transparent;
+        }
+
+        .carousel-track::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .carousel-track::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+        }
+
+        .carousel-track::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        .carousel-item {
+            min-width: 360px;
+            height: 280px;
+            background: linear-gradient(135deg, #1e1e3f 0%, #0a0e27 100%);
+            border-radius: 14px;
+            overflow: hidden;
+            scroll-snap-align: start;
+            position: relative;
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .carousel-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0, 102, 255, 0.25);
+        }
+
+        .carousel-item-content {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.12), rgba(255, 215, 0, 0.05));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 1.2rem;
+            padding: 2.5rem;
+        }
+
+        .carousel-item-icon {
+            font-size: 3.8rem;
+        }
+
+        .carousel-item-content h4 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .carousel-item-content p {
+            font-size: 0.95rem;
+            color: #a0a0a0;
+            margin: 0;
+        }
+
+        /* ==================== CONTACT SECTION ==================== */
+        .contact-section {
+            padding: 6rem 2rem;
+            background: var(--gray-50);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .contact-method {
+            display: flex;
+            gap: 1.8rem;
+            align-items: flex-start;
+        }
+
+        .contact-method-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary-light), rgba(0, 102, 255, 0.1));
+            border: 1px solid var(--primary-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-method-content h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--gray-900);
+        }
+
+        .contact-method-content p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--gray-900);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem 1.2rem;
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--white);
+            color: var(--gray-900);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--gray-300);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+            background: rgba(0, 102, 255, 0.02);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .btn-form {
+            background: linear-gradient(135deg, var(--accent), #FFE66D);
+            color: var(--gray-900);
+            padding: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
+        }
+
+        .btn-form:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        /* ==================== WHATSAPP BUTTON ==================== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #25D366, #1BA85C);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+            animation: pulse-whatsapp 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-whatsapp {
+            0%, 100% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 8px 40px rgba(37, 211, 102, 0.8); }
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.12) translateY(-5px);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.7);
+            animation: none;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 3.5rem 2rem;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            color: #b0b0b0;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 2.5rem 0;
+        }
+
+        .footer-bottom {
+            font-size: 0.85rem;
+            color: #b0b0b0;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .benefits-container,
+            .contact-container,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 5rem 2rem;
+            }
+
+            .nav-menu {
+                gap: 1.5rem;
+            }
+
+            .offer-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                height: 350px;
+            }
+
+            .device-laptop {
+                width: 420px;
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: var(--white);
+                padding: 1.5rem;
+                gap: 1rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                border-bottom: 1px solid var(--gray-200);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero {
+                padding: 4rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-visual {
+                height: 280px;
+            }
+
+            .device-laptop {
+                width: 280px;
+                height: 170px;
+            }
+
+            .device-mobile {
+                width: 140px;
+                height: 260px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .offer-section,
+            .benefits-section,
+            .features-section,
+            .projects-section,
+            .contact-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .carousel-item {
+                min-width: 300px;
+            }
+
+            .benefits-container {
+                gap: 3rem;
+            }
+
+            .contact-container {
+                gap: 2rem;
+            }
+
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                bottom: 30px;
+                right: 30px;
+                font-size: 1.5rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .offer-card {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .feature-item {
+                padding: 1.2rem;
+                gap: 1rem;
+            }
+
+            .carousel-item {
+                min-width: 270px;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .nav-menu {
+                padding: 1rem;
+            }
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- ==================== HEADER ==================== -->
+    <header>
+        <nav>
+            <a href="#" class="logo">TuWeb</a>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#tipos-web">Tipos de Web</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+            </ul>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="https://wa.me/573001234567?text=Hola%20TuWeb!%20Me%20interesa%20cotizar%20una%20página%20web%20acelerada%20por%20IA" class="btn-nav">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <span class="hero-tag">Desarrollo acelerado por Inteligencia Artificial</span>
+            <h1>Transformamos tu empresa con desarrollo web impulsado por <span class="highlight">IA</span></h1>
+            <p>Somos una agencia de diseño web especializada en experiencias de usuario memorables, optimizadas y creadas a una velocidad récord para impulsar las metas de tu negocio.</p>
+            <div class="hero-cta">
+                <a href="https://wa.me/573001234567?text=Hola%20TuWeb!%20Me%20interesa%20cotizar%20una%20página%20web%20acelerada%20por%20IA" class="btn-primary">Cotiza tu web</a>
+                <button class="btn-secondary" onclick="scrollToContact()">Ver más</button>
+            </div>
+            <div class="hero-visual">
+                <div class="device-frame device-laptop"></div>
+                <div class="device-frame device-mobile"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== OFFER SECTION ==================== -->
+    <section class="offer-section" id="tipos-web">
+        <h2 class="section-title">¿Qué tipo de sitio web necesita tu negocio?</h2>
+        <div class="offer-cards">
+            <div class="offer-card">
+                <h3>E-commerce</h3>
+                <p class="subtitle">¿Quieres vender en línea?</p>
+                <p>Plataformas robustas optimizadas con WooCommerce y Shopify. Incrementa tus ventas con tiendas virtuales disponibles 24/7 con soporte IA integrado.</p>
+                <a href="https://wa.me/573001234567?text=Hola%20TuWeb!%20Me%20interesa%20cotizar%20mi%20tienda%20virtual" class="btn-primary">Consultar</a>
+            </div>
+
+            <div class="offer-card accent">
+                <h3>Corporativo</h3>
+                <p class="subtitle">¿Quieres posicionar tu marca?</p>
+                <p>Presencia profesional y autoridad digital. Genera confianza, comunica tu propuesta de valor y establece credibilidad en el mercado digital.</p>
+                <a href="https://wa.me/573001234567?text=Hola%20TuWeb!%20Me%20interesa%20cotizar%20mi%20web%20corporativa" class="btn-primary">Consultar</a>
+            </div>
+
+            <div class="offer-card dark">
+                <h3 style="color: var(--white);">Landing Page</h3>
+                <p class="subtitle" style="color: var(--accent);">¿Quieres más conversiones?</p>
+                <p style="color: #d0d0d0;">Diseños enfocados en conversión optimizada. Captura leads y clientes específicos con llamadas a la acción irresistibles y psicología de conversión.</p>
+                <a href="https://wa.me/573001234567?text=Hola%20TuWeb!%20Me%20interesa%20cotizar%20mi%20landing%20page" class="btn-primary">Consultar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BENEFITS SECTION ==================== -->
+    <section class="benefits-section" id="beneficios">
+        <h2 class="section-title">Beneficios de tener una página web con TuWeb</h2>
+        <div class="benefits-container">
+            <div>
+                <ul class="benefits-list">
+                    <li>Dar a conocer tu marca a nivel digital</li>
+                    <li>Posicionarte en el mercado digital competitivo</li>
+                    <li>Generar credibilidad y confianza institucional</li>
+                    <li>Promocionar productos y servicios de forma automatizada</li>
+                    <li>Reducir costos operativos y optimizar atención al cliente</li>
+                    <li>Automatizar procesos críticos de venta</li>
+                    <li>Fidelizar a clientes existentes</li>
+                    <li>Convertir visitantes en clientes potenciales calificados</li>
+                </ul>
+                <div class="benefits-cta">
+                    <a href="#contacto" onclick="scrollToContact()" class="btn-primary">Cuéntanos tu proyecto</a>
+                </div>
+            </div>
+            <div class="benefits-visual">
+                <div class="benefits-icon">→</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURES SECTION ==================== -->
+    <section class="features-section" id="servicios">
+        <h2 class="section-title">¿Qué incluye nuestro servicio?</h2>
+        <p class="section-subtitle">Todo lo necesario para que tu web sea actual, profesional y a la medida</p>
+        <div class="features-grid">
+            <div class="feature-block">
+                <div class="feature-item">
+                    <div class="feature-icon">⚙</div>
+                    <div class="feature-content">
+                        <h4>Diseño UX-UI Premium</h4>
+                        <p>Interfaces intuitivas basadas en investigación y best practices de experiencia de usuario.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-content">
+                        <h4>Responsive Design</h4>
+                        <p>Adaptabilidad perfecta en móviles, tablets y desktops con rendimiento óptimo.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-content">
+                        <h4>Seguridad Avanzada</h4>
+                        <p>Protección máxima contra vulnerabilidades, ataques DDoS y brechas de datos.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✨</div>
+                    <div class="feature-content">
+                        <h4>Diseño Personalizado</h4>
+                        <p>Desarrollo único y exclusivo que refleja la identidad y valores de tu marca.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎛</div>
+                    <div class="feature-content">
+                        <h4>Panel Autoadministrable</h4>
+                        <p>Control total de tu contenido sin requerimientos técnicos complejos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-item">
+                    <div class="feature-icon">🔍</div>
+                    <div class="feature-content">
+                        <h4>SEO On-Page Avanzado</h4>
+                        <p>Optimización técnica completa para posicionamiento en primeros resultados.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💾</div>
+                    <div class="feature-content">
+                        <h4>Backups Automáticos</h4>
+                        <p>Respaldos diarios garantizados para proteger toda tu información valiosa.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-content">
+                        <h4>Analíticas Integradas</h4>
+                        <p>Seguimiento detallado de visitantes, conversiones y métricas de negocio.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-content">
+                        <h4>Optimización de Velocidad</h4>
+                        <p>Carga ultrarrápida optimizada para conversión y posicionamiento SEO.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔐</div>
+                    <div class="feature-content">
+                        <h4>Certificado SSL Incluido</h4>
+                        <p>Conexión segura HTTPS para generar confianza en tus usuarios y clientes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROJECTS SECTION ==================== -->
+    <section class="projects-section" id="proyectos">
+        <h2 class="section-title">Nuestros Proyectos</h2>
+        <p class="section-subtitle">Casos de éxito que demuestran nuestra experiencia</p>
+        <div class="carousel">
+            <div class="carousel-track">
+                <div class="carousel-item">
+                    <div class="carousel-item-content">
+                        <div class="carousel-item-icon">🛍</div>
+                        <h4>E-commerce Premium</h4>
+                        <p>Incremento de 300% en conversiones y ventas mensuales</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-item-content">
+                        <div class="carousel-item-icon">🤖</div>
+                        <h4>Software con IA</h4>
+                        <p>Plataforma inteligente con procesamiento automático de datos</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-item-content">
+                        <div class="carousel-item-icon">🏛</div>
+                        <h4>Web Corporativa</h4>
+                        <p>Sitio profesional que aumentó leads en 250%</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-item-content">
+                        <div class="carousel-item-icon">📱</div>
+                        <h4>Aplicación Web Mobile</h4>
+                        <p>Sistema responsive con funcionalidades enterprise</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-item-content">
+                        <div class="carousel-item-icon">🎯</div>
+                        <h4>Landing Viral</h4>
+                        <p>Captura de 5000+ leads calificados en 30 días</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section class="contact-section" id="contacto">
+        <h2 class="section-title">Hablemos de tu próximo proyecto</h2>
+        <p class="section-subtitle">Ponte en contacto con nosotros de forma inmediata</p>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-method">
+                    <div class="contact-method-icon">💬</div>
+                    <div class="contact-method-content">
+                        <h4>WhatsApp</h4>
+                        <p><a href="https://wa.me/573208986405" style="color: var(--primary); text-decoration: none; font-weight: 600;">+57 (320) 8986405</a></p>
+                        <p style="font-size: 0.85rem; color: var(--text-light);">Respuesta inmediata a tu consulta</p>
+                    </div>
+                </div>
+
+                <div class="contact-method">
+                    <div class="contact-method-icon">📧</div>
+                    <div class="contact-method-content">
+                        <h4>Correo Electrónico</h4>
+                        <p><a href="mailto:contacto@tuweb.com" style="color: var(--primary); text-decoration: none; font-weight: 600;">tu.web.ing@gmil.com</a></p>
+                        <p style="font-size: 0.85rem; color: var(--text-light);">Respuesta en menos de 24 horas</p>
+                    </div>
+                </div>
+
+                <div class="contact-method">
+                    <div class="contact-method-icon">🌐</div>
+                    <div class="contact-method-content">
+                        <h4>Ubicación Global</h4>
+                        <p>Colombia, América Latina</p>
+                        <p style="font-size: 0.85rem; color: var(--text-light);">Atendemos clientes internacionales</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="+57 (3208986405) 3208986405">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Cuéntanos sobre tu proyecto</label>
+                        <textarea id="mensaje" name="mensaje" required placeholder="Descripción de tu proyecto..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-form">Enviar Consulta</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo" style="color: var(--accent);">TuWeb</div>
+            <div class="footer-text">Desarrollo web acelerado por Inteligencia Artificial</div>
+            <ul class="footer-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            &copy; 2024 TuWeb. Todos los derechos reservados. | Desarrollo acelerado por IA
+        </div>
+    </footer>
+
+    <!-- ==================== WHATSAPP BUTTON ==================== -->
+    <a href="https://wa.me/573208986405?text=Hola%20TuWeb!%20Me%20interesa%20cotizar%20una%20página%20web%20acelerada%20por%20IA" class="whatsapp-float" title="Contactar por WhatsApp">
+        💬
+    </a>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+
+        function scrollToContact() {
+            document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-menu').classList.remove('active');
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const telefono = document.getElementById('telefono').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            const whatsappMessage = `Hola TuWeb! Soy ${nombre}\n\nCorreo: ${email}\nTeléfono: ${telefono}\n\nMi proyecto:\n${mensaje}`;
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            window.open(`https://wa.me/573208986405?text=${encodedMessage}`, '_blank');
+            alert('Tu consulta será procesada. ¡Gracias por contactarnos!');
+            event.target.reset();
+        }
+
+        // Intersection Observer para animaciones
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
